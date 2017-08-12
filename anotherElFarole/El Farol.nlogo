@@ -242,7 +242,7 @@ number-strategies
 number-strategies
 1
 20
-10.0
+1.0
 1
 1
 NIL
@@ -707,6 +707,18 @@ NetLogo 6.0.1
     <go>go</go>
     <timeLimit steps="1000"/>
     <metric>attendance</metric>
+    <enumeratedValueSet variable="number-strategies">
+      <value value="1"/>
+      <value value="5"/>
+      <value value="10"/>
+      <value value="15"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="memory-size">
+      <value value="10"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="overcrowding-threshold">
+      <value value="60"/>
+    </enumeratedValueSet>
   </experiment>
   <experiment name="MultipleRuns" repetitions="1" runMetricsEveryStep="true">
     <setup>setup</setup>

@@ -5,7 +5,7 @@ import matplotlib.cbook as cbook
 #import pandas as pd
 import csv
 import statistics
-
+#strategy , tick , attendance
 
 def getColumn(filename, column):
     results = csv.reader(open(filename), delimiter=",")
