@@ -3,7 +3,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.cbook as cbook
 #import pandas as pd
-import pandas as pd
 import csv
 import statistics
 
@@ -26,6 +25,5 @@ def PlotG():
 	print("mean = ",np.mean(np.array(attendance).astype(np.float)))#mean
 
 PlotG()
-PlotG()	
 
 # Generate some test data
