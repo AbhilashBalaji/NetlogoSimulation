@@ -5,7 +5,6 @@ import matplotlib.cbook as cbook
 import pandas as pd
 import csv
 import statistics
-#strategy , tick , attendance
 
 def getColumn(filename, column,strat):
 	results = csv.reader(open(filename), delimiter=",")
@@ -28,7 +27,7 @@ def PlotG():
 	plt.ylabel("attendance")
 	#lt.plot(Tick[0],attendance[0],label="strat1")
 	#plt.plot(radius, square, marker='o', linestyle='--', color='r', label='Square')
-	plt.plot(Tick[1],attendance[1],marker='o',linestyle='--',color='g',label="strat5")
+	plt.hist(attendance[0],bins=(50,55,60,65,70,75),normed=False,histtype='step')
 	#plt.plot(Tick[2],attendance[2],label="strat10")
 	plt.show()
 	#ts = pd.Series(np.random.randn(1000), index=pd.date_range('1/1/2000', periods=1000))
@@ -40,6 +39,7 @@ def PlotG():
 	print(np.std(np.array(attendance[0]).astype(np.float))) #SD
 	print("mean = ",np.mean(np.array(attendance[0]).astype(np.float)))#mean
 
-PlotG()
 
-# Generate some test data
+
+
+PlotG()
