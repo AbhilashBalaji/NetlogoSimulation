@@ -26,9 +26,16 @@ def PlotG():
 	plt.figure("avg/time")
 	plt.xlabel("tick")
 	plt.ylabel("attendance")
+	std=np.std(np.array(attendance[2]).astype(np.float))
+	mean=np.mean(np.array(attendance[2]).astype(np.float))
+	means=[]
+	for i in range(0,1001):
+		means.append(mean)
 	#lt.plot(Tick[0],attendance[0],label="strat1")
 	#plt.plot(radius, square, marker='o', linestyle='--', color='r', label='Square')
-	plt.plot(Tick[2],attendance[2],label="strat10")
+	plt.plot(Tick[2],attendance[2],label="strat5")
+	plt.plot(Tick[2],means,label="average")
+	print(mean)
 	#plt.plot(Tick[2],attendance[2],label="strat10")
 	plt.show()
 	#ts = pd.Series(np.random.randn(1000), index=pd.date_range('1/1/2000', periods=1000))
@@ -36,9 +43,7 @@ def PlotG():
 	#df=pd.DataFrame(data=Data)
 	#df=df.cumsum()
 	#df.plot()
-	#plt.show()
-	print(np.std(np.array(attendance[0]).astype(np.float))) #SD
-	print("mean = ",np.mean(np.array(attendance[0]).astype(np.float)))#mean
+	#plt.show(
 
 PlotG()
 
