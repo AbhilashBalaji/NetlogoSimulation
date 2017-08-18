@@ -28,7 +28,7 @@ def PlotG():
 	plt.ylabel("attendance")
 	#lt.plot(Tick[0],attendance[0],label="strat1")
 	#plt.plot(radius, square, marker='o', linestyle='--', color='r', label='Square')
-	plt.plot(Tick[1],attendance[1],marker='o',linestyle='--',color='g',label="strat5")
+	plt.plot(Tick[2],attendance[2],label="strat10")
 	#plt.plot(Tick[2],attendance[2],label="strat10")
 	plt.show()
 	#ts = pd.Series(np.random.randn(1000), index=pd.date_range('1/1/2000', periods=1000))
