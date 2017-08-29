@@ -6,6 +6,8 @@ globals [
   crowded-patch     ;; patch where we show the "CROWDED" label
   avg-attendance
   sum-attendance
+  std
+  temp-attend
 ]
 
 turtles-own [
@@ -84,7 +86,10 @@ to go
   set history fput attendance but-last history
   ;; the agents decide what the new best strategy is
   ask turtles [ update-strategies ]
+  set temp-attend avg-attendance
   calculate-average-attendance
+  get-std
+
   ;; advance the clock
   tick
 end
@@ -153,6 +158,10 @@ to calculate-average-attendance
     set avg-attendance (sum-attendance / ticks)]
 end
 
+to get-std
+  if (ticks > 1)[
+    set std  standard-deviation (list attendance avg-attendance)]
+end
 
 ; Copyright 2007 Uri Wilensky.
 ; See Info tab for full copyright and license.
@@ -242,7 +251,7 @@ number-strategies
 number-strategies
 1
 20
-10.0
+25.0
 1
 1
 NIL
@@ -276,7 +285,7 @@ overcrowding-threshold
 overcrowding-threshold
 0
 100
-60.0
+70.0
 1
 1
 NIL
@@ -299,6 +308,24 @@ false
 "" ""
 PENS
 "Avg Attendance" 1.0 0 -16777216 true "" "plot avg-attendance"
+
+PLOT
+520
+255
+720
+405
+Std
+Time
+Std
+0.0
+10.0
+0.0
+10.0
+true
+false
+"" ""
+PENS
+"default" 1.0 0 -16777216 true "" "plot std"
 
 @#$#@#$#@
 ## ACKNOWLEDGMENT
@@ -717,13 +744,18 @@ NetLogo 6.0.1
     <enumeratedValueSet variable="number-strategies">
       <value value="10"/>
       <value value="15"/>
+      <value value="25"/>
     </enumeratedValueSet>
     <enumeratedValueSet variable="memory-size">
       <value value="10"/>
+      <value value="20"/>
+      <value value="30"/>
     </enumeratedValueSet>
     <enumeratedValueSet variable="overcrowding-threshold">
       <value value="40"/>
+      <value value="50"/>
       <value value="60"/>
+      <value value="70"/>
     </enumeratedValueSet>
   </experiment>
 </experiments>
