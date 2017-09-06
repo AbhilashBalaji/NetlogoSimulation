@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{d2a9da47-b088-4aae-8de1-45c82d344cbb}</ProjectGuid>
     <ProjectHome />
-    <StartupFile>AnotherPlotCode.py</StartupFile>
+    <StartupFile>SplitCsv.py</StartupFile>
     <SearchPath />
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
@@ -26,6 +26,9 @@
     <Compile Include="HistPlot.py" />
     <Compile Include="MemoryPlot.py" />
     <Compile Include="PlotCode.py" />
+    <Compile Include="SplitCsv.py">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
 </Project>
