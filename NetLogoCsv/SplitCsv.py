@@ -5,22 +5,49 @@ import matplotlib.cbook as cbook
 import pandas as pd
 import csv
 import statistics
+ 
 
-def getColumn(filename):
+def getTTicks():
+	results = csv.reader(open(filename), delimiter=",")
+	Ticks=[]
+	
+	for result in results:
+		Ticks.append(float(result[0]))
+	return Ticks
+
+
+def getColumn(filename,parameter):
 	results = csv.reader(open(filename), delimiter=",")
 	ans=[]
+	indx=getIndex(filename,parameter)
 	for result in results:
-		#print(result[0])#each row
-	#	print(strat,result[0])
-		if strat == int(result[0])	: #?!?!?!?!?!
-			#print(result[1])
-			ans.append(float(result[column]))
+		ans.append(float(result[indx]))
 	return ans
 
+
+def getIndex(filename,parameter):
+	results = csv.reader(open(filename), delimiter=",")
+	flag =0
+	result=results[0]
+	for i in  range(result):
+		if(parameter==result[i]):
+			return i
+			flag+=1
+	if flag!=1:
+		print("No header of same name or too many")
+		
+def exportCSV(ans,Ticks,parameter ):
+     with open(str(parameter+'.csv'),'w') as csvfile:
+        fieldnames = ['Ticks',parameter]
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+        writer.writeheader()
+        for i in range(len(ans)):
+             writer.writerow({'Ticks': Ticks[i], parameter: ans[i]})
+
 def main():
-    print("Hello World")
+	print("Hello World")
 
 
 
 if __name__=='__main__':
-    main()
+	main()
