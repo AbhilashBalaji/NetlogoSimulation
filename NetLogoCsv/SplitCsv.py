@@ -5,6 +5,7 @@ import matplotlib.cbook as cbook
 import pandas as pd
 import csv
 import statistics
+import tkinter
  
 
 def getTTicks():
@@ -37,15 +38,17 @@ def getIndex(filename,parameter):
 		print("No header of same name or too many")
 		
 def exportCSV(ans,Ticks,parameter ):
-     with open(str(parameter+'.csv'),'w') as csvfile:
-        fieldnames = ['Ticks',parameter]
-        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-        writer.writeheader()
-        for i in range(len(ans)):
-             writer.writerow({'Ticks': Ticks[i], parameter: ans[i]})
+	with open(str(parameter+'.csv'),'w') as csvfile:
+		fieldnames = ['Ticks',parameter]
+		writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+		writer.writeheader()
+		for i in range(len(ans)):
+			 writer.writerow({'Ticks': Ticks[i], parameter: ans[i]})
+
 
 def main():
 	print("Hello World")
+	
 
 
 

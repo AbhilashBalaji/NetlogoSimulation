@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{d2a9da47-b088-4aae-8de1-45c82d344cbb}</ProjectGuid>
     <ProjectHome />
-    <StartupFile>SplitCsv.py</StartupFile>
+    <StartupFile>GUI_build.py</StartupFile>
     <SearchPath />
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
@@ -23,6 +23,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AnotherPlotCode.py" />
+    <Compile Include="GUI_build.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="HistPlot.py" />
     <Compile Include="MemoryPlot.py" />
     <Compile Include="PlotCode.py" />
