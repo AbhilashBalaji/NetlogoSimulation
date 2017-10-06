@@ -236,7 +236,7 @@ memory-size
 memory-size
 1
 10
-10.0
+15.0
 1
 1
 NIL
@@ -251,7 +251,7 @@ number-strategies
 number-strategies
 1
 20
-25.0
+20.0
 1
 1
 NIL
@@ -751,6 +751,22 @@ NetLogo 6.0.1
       <value value="20"/>
       <value value="30"/>
     </enumeratedValueSet>
+    <enumeratedValueSet variable="overcrowding-threshold">
+      <value value="40"/>
+      <value value="50"/>
+      <value value="60"/>
+      <value value="70"/>
+    </enumeratedValueSet>
+  </experiment>
+  <experiment name="experiment" repetitions="1" runMetricsEveryStep="true">
+    <setup>setup</setup>
+    <go>go</go>
+    <timeLimit steps="500"/>
+    <metric>attendance</metric>
+    <metric>avg-attendance</metric>
+    <metric>std</metric>
+    <steppedValueSet variable="number-strategies" first="5" step="1" last="20"/>
+    <steppedValueSet variable="memory-size" first="5" step="5" last="20"/>
     <enumeratedValueSet variable="overcrowding-threshold">
       <value value="40"/>
       <value value="50"/>

@@ -8,8 +8,9 @@ import statistics
 import tkinter
  
 
-def getTTicks():
+def getTTicks(filename):
 	results = csv.reader(open(filename), delimiter=",")
+	next(results, None)
 	Ticks=[]
 	
 	for result in results:
@@ -21,6 +22,7 @@ def getColumn(filename,parameter):
 	results = csv.reader(open(filename), delimiter=",")
 	ans=[]
 	indx=getIndex(filename,parameter)
+	next(results, None)
 	for result in results:
 		ans.append(float(result[indx]))
 	return ans
@@ -28,14 +30,12 @@ def getColumn(filename,parameter):
 
 def getIndex(filename,parameter):
 	results = csv.reader(open(filename), delimiter=",")
-	flag =0
-	result=results[0]
-	for i in  range(result):
-		if(parameter==result[i]):
-			return i
-			flag+=1
-	if flag!=1:
-		print("No header of same name or too many")
+	for result in results:
+		for i in  range(len(result)):
+			if(parameter==result[i]):
+				return i
+				break
+		break
 		
 def exportCSV(ans,Ticks,parameter ):
 	with open(str(parameter+'.csv'),'w') as csvfile:
@@ -45,10 +45,39 @@ def exportCSV(ans,Ticks,parameter ):
 		for i in range(len(ans)):
 			 writer.writerow({'Ticks': Ticks[i], parameter: ans[i]})
 
+def getParameters(filename):
+	results = csv.reader(open(filename), delimiter=",")
+	headers=[]
+	for result in results:
+		headers=result
+		break
+	return headers
 
 def main():
-	print("Hello World")
-	
+	filename=input("Enter Name of Csv file: ")
+	print("Splitting Values...")
+	headers=getParameters(filename)
+	ans={}
+	Ticks=getTTicks(filename)
+
+	for header in headers:
+		if header !="Ticks":
+			ans[header]=set()
+			for data in getColumn(filename,header):
+				ans[header].add(data)
+	#for header,values in ans.items():
+	Perms=[]
+	for header,data in ans.items():
+		vals=[]
+		for num in data:
+			vals.append(num)
+		Perms.append(vals)
+	print(Perms[2])
+
+
+
+
+
 
 
 
