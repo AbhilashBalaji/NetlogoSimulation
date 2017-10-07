@@ -6,19 +6,19 @@ import pandas as pd
 import csv
 import statistics
 import tkinter
- 
+
 
 def getTTicks(filename):
 	results = csv.reader(open(filename), delimiter=",")
 	next(results, None)
+
 	Ticks=[]
-	
+
 	for result in results:
 		Ticks.append(float(result[0]))
 	return Ticks
 
-
-def getColumn(filename,parameter):
+def getColumn(filename,parameter="Ticks"):
 	results = csv.reader(open(filename), delimiter=",")
 	ans=[]
 	indx=getIndex(filename,parameter)
@@ -28,7 +28,7 @@ def getColumn(filename,parameter):
 	return ans
 
 
-def getIndex(filename,parameter):
+def getIndex(filename,parameter="Ticks"):
 	results = csv.reader(open(filename), delimiter=",")
 	for result in results:
 		for i in  range(len(result)):
@@ -36,14 +36,14 @@ def getIndex(filename,parameter):
 				return i
 				break
 		break
-		
-def exportCSV(ans,Ticks,parameter ):
-	with open(str(parameter+'.csv'),'w') as csvfile:
-		fieldnames = ['Ticks',parameter]
+
+def exportCSV(ans1,ans2,parameter1,parameter2 ):
+	with open(str(parameter1+"_"+parameter2+'.csv'),'w') as csvfile:
+		fieldnames = [parameter1,parameter2]
 		writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 		writer.writeheader()
 		for i in range(len(ans)):
-			 writer.writerow({'Ticks': Ticks[i], parameter: ans[i]})
+			 writer.writerow({parameter1:ans1[i], parameter2: ans2[i]})
 
 def getParameters(filename):
 	results = csv.reader(open(filename), delimiter=",")
@@ -52,26 +52,26 @@ def getParameters(filename):
 		headers=result
 		break
 	return headers
+    #ans={}
 
 def main():
+    ans={}
 	filename=input("Enter Name of Csv file: ")
 	print("Splitting Values...")
 	headers=getParameters(filename)
-	ans={}
 	Ticks=getTTicks(filename)
 
 	for header in headers:
 		if header !="Ticks":
-			ans[header]=set()
+
 			for data in getColumn(filename,header):
 				ans[header].add(data)
 	#for header,values in ans.items():
-	Perms=[]
 	for header,data in ans.items():
 		vals=[]
 		for num in data:
 			vals.append(num)
-		Perms.append(vals)
+
 	print(Perms[2])
 
 
