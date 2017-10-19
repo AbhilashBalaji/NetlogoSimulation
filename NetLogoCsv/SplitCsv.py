@@ -7,6 +7,7 @@ import csv
 import statistics
 import tkinter
 
+filename=input("Enter Name of Csv file: ")
 
 def getTTicks(filename):
 	results = csv.reader(open(filename), delimiter=",")
@@ -38,11 +39,11 @@ def getIndex(filename,parameter="Ticks"):
 		break
 
 def exportCSV(ans1,ans2,parameter1,parameter2 ):
-	with open(str(parameter1+"_"+parameter2+'.csv'),'w') as csvfile:
+	with open("E:\\Repos\\Netlogo\\Tables\\"+str(parameter1+"_"+parameter2+'.csv'),'w') as csvfile:
 		fieldnames = [parameter1,parameter2]
 		writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 		writer.writeheader()
-		for i in range(len(ans)):
+		for i in range(len(ans1)):
 			 writer.writerow({parameter1:ans1[i], parameter2: ans2[i]})
 
 def getParameters(filename):
@@ -54,25 +55,37 @@ def getParameters(filename):
 	return headers
     #ans={}
 
+def SortCall(item) :
+	results = csv.reader(open(filename), delimiter=",")
+	for result in results:
+		if item in result:
+			return result
+
 def main():
-    ans={}
-	filename=input("Enter Name of Csv file: ")
+	ans={}
 	print("Splitting Values...")
 	headers=getParameters(filename)
 	Ticks=getTTicks(filename)
 
 	for header in headers:
 		if header !="Ticks":
-
+			ans[header]=[]
 			for data in getColumn(filename,header):
-				ans[header].add(data)
+				
+				ans[header].append(data)
 	#for header,values in ans.items():
+	'''
 	for header,data in ans.items():
-		vals=[]
+		#header[data]=header[data].sorted(Key=SortCall)
 		for num in data:
-			vals.append(num)
-
-	print(Perms[2])
+			#vals.append(num)
+		'''
+	print("Writting Csvs...")
+	for header1,value1 in ans.items():
+		for header2,value2 in ans.items():
+			if header1!= header2:
+				exportCSV(value1,value2,header1,header2)
+	#print(Perms[2])
 
 
 
