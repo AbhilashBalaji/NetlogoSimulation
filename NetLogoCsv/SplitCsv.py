@@ -8,6 +8,7 @@ import statistics
 import tkinter
 
 filename=input("Enter Name of Csv file: ")
+noR=int(input("Enter number of Runs"))
 
 def getTTicks(filename):
 	results = csv.reader(open(filename), delimiter=",")
@@ -37,9 +38,13 @@ def getIndex(filename,parameter="Ticks"):
 				return i
 				break
 		break
-
-def exportCSV(ans1,ans2,parameter1,parameter2 ):
-	with open("E:\\Repos\\Netlogo\\Tables\\"+str(parameter1+"_"+parameter2+'.csv'),'w') as csvfile:
+'''
+take 2 parameters at a time
+change to sort by run 
+and export data per run
+'''
+def exportCSV(rn):
+	with open("E:\\Repos\\Netlogo\\Tables\\"+str(rn+'.csv'),'w') as csvfile:
 		fieldnames = [parameter1,parameter2]
 		writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 		writer.writeheader()
@@ -50,7 +55,7 @@ def getParameters(filename):
 	results = csv.reader(open(filename), delimiter=",")
 	headers=[]
 	for result in results:
-		headers=result
+		headers=results
 		break
 	return headers
     #ans={}
@@ -66,13 +71,12 @@ def main():
 	print("Splitting Values...")
 	headers=getParameters(filename)
 	Ticks=getTTicks(filename)
+	
 
 	for header in headers:
-		if header !="Ticks":
-			ans[header]=[]
-			for data in getColumn(filename,header):
-				
-				ans[header].append(data)
+		for data in getColumn(filename,header):
+			ans[header].append(data)
+	
 	#for header,values in ans.items():
 	'''
 	for header,data in ans.items():
@@ -81,13 +85,7 @@ def main():
 			#vals.append(num)
 		'''
 	print("Writting Csvs...")
-	for header1,value1 in ans.items():
-		for header2,value2 in ans.items():
-			if header1!= header2:
-				exportCSV(value1,value2,header1,header2)
-	#print(Perms[2])
-
-
+	#for header1,value1 in ans.items():
 
 
 

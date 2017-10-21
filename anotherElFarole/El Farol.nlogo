@@ -285,7 +285,7 @@ overcrowding-threshold
 overcrowding-threshold
 0
 100
-70.0
+42.0
 1
 1
 NIL
