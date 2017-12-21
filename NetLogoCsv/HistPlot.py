@@ -40,6 +40,4 @@ def PlotG():
 	print("mean = ",np.mean(np.array(attendance[0]).astype(np.float)))#mean
 
 
-
-
 PlotG()

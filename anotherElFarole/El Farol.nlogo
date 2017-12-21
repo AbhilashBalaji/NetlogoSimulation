@@ -236,7 +236,7 @@ memory-size
 memory-size
 1
 10
-15.0
+8.0
 1
 1
 NIL
@@ -285,7 +285,7 @@ overcrowding-threshold
 overcrowding-threshold
 0
 100
-42.0
+76.0
 1
 1
 NIL
@@ -718,7 +718,7 @@ false
 Polygon -7500403 true true 270 75 225 30 30 225 75 270
 Polygon -7500403 true true 30 75 75 30 270 225 225 270
 @#$#@#$#@
-NetLogo 6.0.1
+NetLogo 6.0.2
 @#$#@#$#@
 @#$#@#$#@
 @#$#@#$#@
