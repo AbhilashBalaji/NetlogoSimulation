@@ -162,18 +162,15 @@ to get-std
   if (ticks > 1)[
     set std  standard-deviation (list attendance avg-attendance)]
 end
-
-; Copyright 2007 Uri Wilensky.
-; See Info tab for full copyright and license.
 @#$#@#$#@
 GRAPHICS-WINDOW
-578
-562
-726
-847
+25
+215
+133
+421
 -1
 -1
-4.0
+2.86
 1
 24
 1
@@ -236,7 +233,7 @@ memory-size
 memory-size
 1
 10
-8.0
+15.0
 1
 1
 NIL
@@ -251,7 +248,7 @@ number-strategies
 number-strategies
 1
 20
-20.0
+15.0
 1
 1
 NIL
@@ -285,7 +282,7 @@ overcrowding-threshold
 overcrowding-threshold
 0
 100
-76.0
+60.0
 1
 1
 NIL
@@ -328,14 +325,6 @@ PENS
 "default" 1.0 0 -16777216 true "" "plot std"
 
 @#$#@#$#@
-## ACKNOWLEDGMENT
-
-This model is from Chapter Three of the book "Introduction to Agent-Based Modeling: Modeling Natural, Social and Engineered Complex Systems with NetLogo", by Uri Wilensky & William Rand.
-
-* Wilensky, U. & Rand, W. (2015). Introduction to Agent-Based Modeling: Modeling Natural, Social and Engineered Complex Systems with NetLogo. Cambridge, MA. MIT Press.
-
-This model is in the IABM Textbook folder of the NetLogo Models Library. The model, as well as any updates to the model, can also be found on the textbook website: http://www.intro-to-abm.com/.
-
 ## WHAT IS IT?
 
 El Farol is a bar in Santa Fe, New Mexico.  The bar is popular --- especially on Thursday nights when they offer Irish music --- but sometimes becomes overcrowded and unpleasant. In fact, if the patrons of the bar think it will be overcrowded they stay home; otherwise they go enjoy themselves at El Farol.  This model explores what happens to the overall attendance at the bar on these popular Thursday evenings, as the patrons use different strategies for determining how crowded they think the bar will be.
@@ -364,19 +353,7 @@ The green part of the world represents the homes of the patrons, while the blue 
 
 ## THINGS TO TRY
 
-Try running the model with different settings for MEMORY-SIZE and NUMBER-STRATEGIES.  What happens to the variability in attendance as you decrease NUMBER-STRATEGIES?  What happens to the variability in the plot if you decrease MEMORY-SIZE?
-
-## EXTENDING THE MODEL
-
-Currently the weights that determine each strategy are randomly generated during the model setup.  Try altering the weights that are possible during setup so that they only reflect a mix of the following agent strategies:
-- always predict the same as last week's attendance
-- an average of the last several week's attendance
-- the same as 2 weeks ago
-Can you think of other simple rules one might follow?
-
-At the end of Arthur's original paper, he mentions that though he uses a simple learning technique (the "bag of strategies" method that we use here) almost any other kind of machine learning technique would achieve the same results.  This method is particularly limiting in that the strategies an agent is given during the setup are all the strategies they have for the entire run of the model.  Most other machine learning methods would enable the agents to change their strategies over time.  In fact Fogel et al. (1999) implemented a genetic algorithm and got somewhat different results.  Try implementing another machine learning technique and see what the results are.
-
-Can you think of a better way to measure the success of strategies and calculate the best-strategy?
+Try running the model with different settings for MEMORY-SIZE and NUMBER-STRATEGIES.  What happens to the variability in attendance as you decrease NUMBER-STRATEGIES?  What happens to the variability in the plot if you decrease MEMORY-SIZE??
 
 ## NETLOGO FEATURES
 
@@ -384,57 +361,10 @@ Lists are used to represent strategies and attendance histories.
 
 `n-values` is useful for generating random strategies.
 
-## RELATED MODELS
-
-Arthur's original model has been generalized as the Minority Game and is included in the Social Sciences section of the NetLogo models library.
-
-Wilensky, U. (2004).  NetLogo Minority Game model.  http://ccl.northwestern.edu/netlogo/models/MinorityGame.  Center for Connected Learning and Computer-Based Modeling, Northwestern University, Evanston, IL.
-
-There is also a participatory simulation version of the Minority Game model in the models library.
-
-Stouffer, D. & Wilensky, U. (2004). NetLogo Minority Game HubNet model. http://ccl.northwestern.edu/netlogo/models/MinorityGameHubNet. Center for Connected Learning and Computer-Based Modeling, Northwestern University, Evanston, IL.
-
-There is an alternative implementation of this model with more parameters that is part of the NetLogo User Community Models.
 
 ## CREDITS AND REFERENCES
 
-This model is adapted from:
-
-Rand, W. and Wilensky, U. (1997). NetLogo El Farol model. http://ccl.northwestern.edu/netlogo/models/ElFarol. Center for Connected Learning and Computer-Based Modeling, Northwestern University, Evanston, IL.
-
 This model is inspired by a paper by W. Brian Arthur. "Inductive Reasoning and Bounded Rationality", W. Brian Arthur, The American Economic Review, 1994, v84n2, p406-411.
-
-David Fogel et al. also built a version of this model using a genetic algorithm.  "Inductive reasoning and bounded rationality reconsidered", Fogel, D.B.; Chellapilla, K.; Angeline, P.J., IEEE Transactions on Evolutionary Computation, 1999, v3n2, p142-146.
-
-## HOW TO CITE
-
-This model is part of the textbook, “Introduction to Agent-Based Modeling: Modeling Natural, Social and Engineered Complex Systems with NetLogo.”
-
-If you mention this model or the NetLogo software in a publication, we ask that you include the citations below.
-
-For the model itself:
-
-* Rand, W., Wilensky, U. (2007).  NetLogo El Farol model.  http://ccl.northwestern.edu/netlogo/models/ElFarol.  Center for Connected Learning and Computer-Based Modeling, Northwestern Institute on Complex Systems, Northwestern University, Evanston, IL.
-
-Please cite the NetLogo software as:
-
-* Wilensky, U. (1999). NetLogo. http://ccl.northwestern.edu/netlogo/. Center for Connected Learning and Computer-Based Modeling, Northwestern University, Evanston, IL.
-
-Please cite the textbook as:
-
-* Wilensky, U. & Rand, W. (2015). Introduction to Agent-Based Modeling: Modeling Natural, Social and Engineered Complex Systems with NetLogo. Cambridge, MA. MIT Press.
-
-## COPYRIGHT AND LICENSE
-
-Copyright 2007 Uri Wilensky.
-
-![CC BY-NC-SA 3.0](http://ccl.northwestern.edu/images/creativecommons/byncsa.png)
-
-This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 3.0 License.  To view a copy of this license, visit https://creativecommons.org/licenses/by-nc-sa/3.0/ or send a letter to Creative Commons, 559 Nathan Abbott Way, Stanford, California 94305, USA.
-
-Commercial licenses are also available. To inquire about commercial licenses, please contact Uri Wilensky at uri@northwestern.edu.
-
-<!-- 2007 Cite: Rand, W., Wilensky, U. -->
 @#$#@#$#@
 default
 true
@@ -735,27 +665,20 @@ NetLogo 6.0.2
     <timeLimit steps="1000"/>
     <metric>attendance</metric>
   </experiment>
-  <experiment name="MultipleRuns" repetitions="1" runMetricsEveryStep="true">
+  <experiment name="MultipleRuns" repetitions="1" runMetricsEveryStep="false">
     <setup>setup</setup>
     <go>go</go>
-    <timeLimit steps="1000"/>
+    <timeLimit steps="100"/>
     <metric>avg-attendance</metric>
-    <metric>attendance</metric>
-    <enumeratedValueSet variable="number-strategies">
+    <metric>std</metric>
+    <steppedValueSet variable="number-strategies" first="1" step="1" last="15"/>
+    <enumeratedValueSet variable="memory-size">
+      <value value="5"/>
       <value value="10"/>
       <value value="15"/>
-      <value value="25"/>
-    </enumeratedValueSet>
-    <enumeratedValueSet variable="memory-size">
-      <value value="10"/>
-      <value value="20"/>
-      <value value="30"/>
     </enumeratedValueSet>
     <enumeratedValueSet variable="overcrowding-threshold">
-      <value value="40"/>
-      <value value="50"/>
       <value value="60"/>
-      <value value="70"/>
     </enumeratedValueSet>
   </experiment>
   <experiment name="experiment" repetitions="1" runMetricsEveryStep="true">
@@ -772,6 +695,20 @@ NetLogo 6.0.2
       <value value="50"/>
       <value value="60"/>
       <value value="70"/>
+    </enumeratedValueSet>
+  </experiment>
+  <experiment name="experiment" repetitions="1" runMetricsEveryStep="false">
+    <setup>setup</setup>
+    <go>go</go>
+    <metric>count turtles</metric>
+    <enumeratedValueSet variable="number-strategies">
+      <value value="20"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="memory-size">
+      <value value="10"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="overcrowding-threshold">
+      <value value="76"/>
     </enumeratedValueSet>
   </experiment>
 </experiments>
